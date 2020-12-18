@@ -142,9 +142,66 @@ To create an array of objects:
 * Then use `new` again to put object that you want in the array.
 
 ```java
-Dog[] dogs = new Dog[2];
-dogs[0] = new Dog(8);
+Dog[] dogs = new Dog[2]; # create new array
+dogs[0] = new Dog(8);    # create new object
 dogs[1] = new Dog(20);
 dogs[0].makeNoise();
 ```
 
+### Staitc vs. Non-static
+
+* Static method are invoked using the class name.
+* Static method can't be invoked using instance variables.
+* Instance(non-static) methods are invoked using an instance name.
+
+```java
+public static Dog maxDog(Dog d1, Dog d2) {  # class name
+	if (d1.weightInPounds > d2.weightInPounds) {
+   		return d1;
+	}
+	return d2;
+}
+
+public Dog maxDog(Dog d2) {  # instance name
+    if (this.weightInPounds > d2.weightInPounds) {  # this= __init__ in python
+        return this;
+    }
+    return d2;
+}
+```
+
+waterloo, guys 21-24, 28-31  10:00-18:00
+4th back to normal
+
+* Declare static variables which are properties shared by all instances of the class.
+
+```java 
+public static String binomen = "Cans famliiaris";
+```
+
+* A variable or method defined in a class is also called a **member** of that class. 
+* Static members are accessed using **class name**.
+* Non-static members cannot be accessed using class name.
+
+### public static void main(String[] args)
+
+* `public`: So far, all of our methods start with this keyword.
+* `static`: It is a static method, not associated with any particular instance.
+* `void`: It has no return type.
+* `main`: This is the name of the method.
+* `String[] args`: This is a parameter that is passed to the main method in command line
+
+For example, this program prints out the first command line argument.
+
+```java
+public class ArgsDemo {
+    public static void main(String[] args) {
+        System.out.println(args[0]);
+    }
+}
+```
+
+```
+$ java ArgsDemo these are command line arguments
+these
+```
